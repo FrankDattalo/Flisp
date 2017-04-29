@@ -1,1 +1,3 @@
-<span style="text-align: center">Hello</span>
+<p align="center">
+  Hello
+</p>
