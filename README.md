@@ -29,14 +29,14 @@ mySymbol
 
 ## TODO
 
-Implementation of standard library.
-Implementation of Sets, Vectors, Maps, and a module system.
-Implementation of REPL.
-Implementation of Command Line Runner.
+- Implementation of standard library.
+- Implementation of Sets, Vectors, Maps, and a module system.
+- Implementation of REPL.
+- Implementation of Command Line Runner.
 
 ## Build
 
-```
+```bash
 $ git clone <this repo>
 $ mvn clean install
 ```
