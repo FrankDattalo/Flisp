@@ -11,6 +11,18 @@ import io.github.frankdattalo.flisp.parser.ParserException;
 import java.util.Scanner;
 
 public class Repl {
+
+    private static final String LOGO =
+" ______     __           ________      ______       ______    \n" +
+"/_____/\\   /_/\\         /_______/\\    /_____/\\     /_____/\\   \n" +
+"\\::::_\\/_  \\:\\ \\        \\__.::._\\/    \\::::_\\/_    \\:::_ \\ \\  \n" +
+" \\:\\/___/\\  \\:\\ \\          \\::\\ \\      \\:\\/___/\\    \\:(_) \\ \\ \n" +
+"  \\:::._\\/   \\:\\ \\____     _\\::\\ \\__    \\_::._\\:\\    \\: ___\\/ \n" +
+"   \\:\\ \\      \\:\\/___/\\   /__\\::\\__/\\     /____\\:\\    \\ \\ \\   \n" +
+"    \\_\\/       \\_____\\/   \\________\\/     \\_____\\/     \\_\\/   \n" +
+"                                                              \n" +
+" Flisp Lang. Copyright: Frank Dattalo 2017                    \n";
+
     private static String readline(Scanner in) {
         StringBuilder sb = new StringBuilder();
 
@@ -34,6 +46,8 @@ public class Repl {
     }
 
     public static void run() {
+	System.out.print(LOGO);
+
         Environment env = Environment.global();
         try (Scanner in = new Scanner(System.in)) {
             while(true) {
