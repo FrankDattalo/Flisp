@@ -10,7 +10,18 @@ public class FlispNumber implements FlispAtom {
     this.value = bigDecimal;
   }
 
+  public BigDecimal getValue() {
+      return value;
+  }
+
   public String toString() {
     return this.value.toPlainString();
+  }
+
+  public boolean equals(Object other) {
+      if(other == null) return false;
+      if(!(other instanceof FlispNumber)) return false;
+
+      return ((FlispNumber) other).getValue().equals(this.getValue());
   }
 }

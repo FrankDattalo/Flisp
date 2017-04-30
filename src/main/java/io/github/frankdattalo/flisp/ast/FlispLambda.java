@@ -8,6 +8,8 @@ import javaslang.Function1;
 import javaslang.Tuple2;
 import javaslang.collection.List;
 
+import java.util.Objects;
+
 public class FlispLambda extends FlispList {
 
     private static final FlispExpression lambda = new FlispSymbol("fn");
@@ -87,6 +89,10 @@ public class FlispLambda extends FlispList {
                     "[native" +
                     " code])";
         }
+    }
+
+    public boolean equals(Object other) {
+        return other == this;
     }
 
 }
