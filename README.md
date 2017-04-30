@@ -39,6 +39,7 @@ mySymbol
 
 ```bash
 $ git clone <this repo>
-$ mvn clean install
+$ mvn clean package
+$ export CLASSPATH=".:/home/frank/.m2/repository/io/javaslang/javaslang/2.0.6:/home/frank/.m2/repository/org/antlr/antlr4/4.7"
 ```
 
