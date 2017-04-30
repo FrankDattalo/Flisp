@@ -34,6 +34,11 @@ mySymbol
 ## TODO
 
 - Implementation of Sets, Vectors, and Maps.
+- Implementation of a macro system.
+
+## Issues
+
+- There is an issue with relative file locations during imports and exports.
 
 ## Build
 

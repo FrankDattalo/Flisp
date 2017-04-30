@@ -1,0 +1,4 @@
+(import "./imports.flisp")
+
+(println "Hello World")
+(println flispCreator)

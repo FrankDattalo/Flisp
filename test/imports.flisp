@@ -1,0 +1,7 @@
+(def flispCreator "Frank Dattalo")
+
+(def println (fn (x)
+  (print (concat x newline))))
+
+(export flispCreator)
+(export println)
