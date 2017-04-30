@@ -219,6 +219,7 @@ public class Environment {
     }
 
     private Map<String, FlispExpression>     representation;
+    private Map<FlispSymbol, FlispExpression> exports = HashMap.empty();
     private final Environment               outer;
 
     public Environment(Map<String, FlispExpression> rep,
@@ -259,6 +260,14 @@ public class Environment {
       } else {
           throw new InterpreterException(key + " is undefined");
       }
+    }
+
+    public void export(FlispSymbol key) {
+        this.exports = this.exports.put(key, this.get(key));
+    }
+
+    public Map<FlispSymbol, FlispExpression> getExports() {
+        return this.exports;
     }
 
     public void put(FlispSymbol key, FlispExpression value) {

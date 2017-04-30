@@ -11,7 +11,10 @@ Flisp is a small lisp dialect.  It is currently written in Java.
 
 ### Flisp Data Types
 
-Flisp contains two primary data types: the atom and the list. Lists can contain any Flisp data type. Atoms can be: strings, numbers, or symbols. Numbers are arbitrarily precise.
+Flisp contains two primary data types: the atom and the list.
+Lists can contain any Flisp data type. Atoms can be: strings,
+numbers, or symbols. Numbers are arbitrarily precise.
+
 ```clojure
 ( ... list contents ... )
 
@@ -29,7 +32,7 @@ mySymbol
 
 ## TODO
 
-- Implementation of Sets, Vectors, Maps, and a module system.
+- Implementation of Sets, Vectors, and Maps.
 - Implementation of REPL.
 - Implementation of Command Line Runner.
 

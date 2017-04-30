@@ -1,9 +1,9 @@
 package io.github.frankdattalo.flisp.interpreter;
 
-import io.github.frankdattalo.flisp.ast.FlispExpression;
-import io.github.frankdattalo.flisp.ast.FlispLambda;
-import io.github.frankdattalo.flisp.ast.FlispList;
-import io.github.frankdattalo.flisp.ast.FlispSymbol;
+import io.github.frankdattalo.flisp.ast.*;
+import io.github.frankdattalo.flisp.parser.Parser;
+import io.github.frankdattalo.flisp.parser.ParserException;
+import javaslang.Tuple2;
 import javaslang.collection.List;
 
 public class SpecialFormInterpreter implements Interpreter<FlispExpression> {
@@ -19,6 +19,8 @@ public class SpecialFormInterpreter implements Interpreter<FlispExpression> {
             case "def":
             case "fn":
             case "literal":
+            case "import":
+            case "export":
             case "case": return true;
             default: return false;
         }
@@ -132,6 +134,39 @@ public class SpecialFormInterpreter implements Interpreter<FlispExpression> {
 
             throw new InterpreterException("No true cases for " +
                     "case");
+        }
+        case "import": {
+            if(list.length() != 2 || !(list.get(1) instanceof FlispString)) {
+                throw new InterpreterException("import takes a file location " +
+                        "as a string as an argument");
+            }
+
+            try {
+                FlispList program =
+                        Parser.fromFile(((FlispString) list.get(1))
+                        .getValue()).parse();
+
+                Environment exports = ProgramInterpreter.run(program);
+
+                for (Tuple2<FlispSymbol, FlispExpression> export : exports.getExports()) {
+                    environment.put(export._1(), export._2());
+                }
+
+                return FlispList.EMPTY;
+
+            } catch (ParserException e) {
+                throw new InterpreterException(e.getLocalizedMessage());
+            }
+        }
+        case "export": {
+            if(list.length() != 2 || !(list.get(1) instanceof FlispSymbol)) {
+                throw new InterpreterException("export takes a file location " +
+                        "as a symbol as an argument");
+            }
+
+            environment.export((FlispSymbol) list.get(1));
+
+            return FlispList.EMPTY;
         }
         default: throw new InterpreterException("Invalid type" +
                     " passe to interpret");
