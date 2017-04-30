@@ -1,6 +1,7 @@
 # Flisp
 
-Flisp is a small lisp dialect.  It is currently written in Java. 
+Flisp is a small lisp dialect.  It is currently written in Java. Flisp supports
+lexical closures, arbitrarily precise arithmetic, and a module system.
 
 ## Flisp Tutorial:
 
@@ -33,8 +34,6 @@ mySymbol
 ## TODO
 
 - Implementation of Sets, Vectors, and Maps.
-- Implementation of REPL.
-- Implementation of Command Line Runner.
 
 ## Build
 

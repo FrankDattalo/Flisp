@@ -27,7 +27,7 @@ public class ProgramInterpreter implements Interpreter<Environment> {
             }
 
         } else {
-            ExpressionInterpreter.run(environment, expression);
+            throw new InterpreterException("Expected a list");
         }
 
         return environment;
