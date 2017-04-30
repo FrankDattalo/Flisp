@@ -22,14 +22,13 @@ mySymbol
 1 2 3 -1 1.00000000000000000000000000000000000000065 4573523523523532123123124124991
 
 (def greet (fn (name)
-  (print (str "Hello " name "!"))))
+  (print (concat "Hello " name))))
   
 (greet "Frank") Prints "Hello Frank!"
 ```
 
 ## TODO
 
-- Implementation of standard library.
 - Implementation of Sets, Vectors, Maps, and a module system.
 - Implementation of REPL.
 - Implementation of Command Line Runner.
