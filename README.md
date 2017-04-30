@@ -40,6 +40,6 @@ mySymbol
 ```bash
 $ git clone <this repo>
 $ mvn clean package
-$ java -jar target/flisp*.jar
+$ ./flisp <file path (or empty for repl)>
 ```
 
