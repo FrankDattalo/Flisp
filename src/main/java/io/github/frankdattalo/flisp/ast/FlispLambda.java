@@ -29,7 +29,7 @@ public class FlispLambda extends FlispList {
 
         super(List.of(lambda)
                 .append(new FlispList((List) argSymbols))
-                .append(new FlispString("([native code])")));
+                .append(new FlispString("([native code])", false)));
 
         this.argsList = argSymbols;
         this.environment = environment;

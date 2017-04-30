@@ -139,7 +139,7 @@ public class ParserImpl implements Parser {
     @Override
     public FlispAtom visitAtom(FlispParser.AtomContext ctx) {
       if (ctx.string() != null) {
-        return new FlispString(ctx.string().getText());
+        return new FlispString(ctx.string().getText(), true);
       } else if (ctx.symbol() != null) {
         return new FlispSymbol(ctx.symbol().getText());
       } else { // ctx.number()

@@ -50,7 +50,8 @@ public class Environment {
                         })),
 
                 new Tuple2<String, FlispExpression>("read", new FlispLambda
-                        (GLOBAL, FlispSymbol.list(), env -> new FlispString(in.nextLine()))),
+                        (GLOBAL, FlispSymbol.list(), env -> new FlispString
+                                (in.nextLine(), true))),
 
                 new Tuple2<String, FlispExpression>("true", new FlispSymbol
                         ("true")),
@@ -59,7 +60,7 @@ public class Environment {
                         ("false")),
 
                 new Tuple2<String, FlispExpression>("newline", new FlispString
-                        (System.lineSeparator())),
+                        (System.lineSeparator(), false)),
 
                 new Tuple2<String, FlispExpression>("+", new FlispLambda
                         (GLOBAL, FlispSymbol.list("x", "y"), env -> {
@@ -138,7 +139,7 @@ public class Environment {
                 new Tuple2<String, FlispExpression>("concat", new
                         FlispLambda(GLOBAL, FlispSymbol.list("x", "y"),
                         env -> new FlispString(env.get("x").toString()
-                                .concat(env.get("y").toString())))),
+                                .concat(env.get("y").toString()), false))),
 
                 new Tuple2<String, FlispExpression>("length", new
                         FlispLambda(GLOBAL, FlispSymbol.list("x"), env -> {
@@ -168,12 +169,14 @@ public class Environment {
 
                             return new FlispString("" +
                                     ((FlispString) strE).getValue().charAt((
-                                    (FlispNumber) iE).getValue().intValue()));
+                                    (FlispNumber) iE).getValue().intValue()),
+                                    false);
                         })),
 
                 new Tuple2<String, FlispExpression>("toString", new
                         FlispLambda(GLOBAL, FlispSymbol.list("x"),
-                        env -> new FlispString(env.get("x").toString()))),
+                        env -> new FlispString(env.get("x").toString(),
+                                false))),
 
                 new Tuple2<String, FlispExpression>("=", new FlispLambda
                         (GLOBAL, FlispSymbol.list("x", "y"),

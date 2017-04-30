@@ -3,17 +3,29 @@ package io.github.frankdattalo.flisp.ast;
 public class FlispString implements FlispAtom {
 
     private final String value;
+    private final String valueWithoutQuotes;
 
     public String getValue() {
-      return value;
+      return valueWithoutQuotes;
     }
 
-    public FlispString(String input) {
-    this.value = input;
+    public FlispString(String input, boolean stripQuotes) {
+        this.value = input;
+
+        if(!stripQuotes) {
+            this.valueWithoutQuotes = this.value;
+            return;
+        }
+
+        if(this.value.length() > 2) {
+            valueWithoutQuotes = this.value.substring(1, this.value.length() - 1);
+        } else {
+            valueWithoutQuotes = "";
+        }
     }
 
     public String toString() {
-    return this.value;
+    return this.valueWithoutQuotes;
   }
 
     public boolean equals(Object other) {
